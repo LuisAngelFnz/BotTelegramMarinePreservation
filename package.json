@@ -1,0 +1,14 @@
+{
+  "name": "bottelegrammarinepreservation",
+  "version": "1.0.0",
+  "description": "Proyecto para Hackathon en LanunchX",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Luis Ángel Fernandez y Compañeros de Equipo",
+  "license": "ISC"
+}
