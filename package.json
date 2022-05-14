@@ -7,8 +7,8 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "server":"node ./lib/server.js"
+    "test": "jest ./node_modules/.bin/jest",
+    "server": "node ./lib/server.js"
   },
   "author": "Luis Ángel Fernandez y Compañeros de Equipo",
   "license": "ISC",
@@ -16,6 +16,7 @@
     "node-telegram-bot-api": "^0.57.0"
   },
   "devDependencies": {
-    "express": "^4.18.1"
+    "express": "^4.18.1",
+    "jest": "^26.0.0"
   }
 }
