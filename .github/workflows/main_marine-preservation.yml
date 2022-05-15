@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy Node.js app to Azure Web App - Marine-Preservation
+name: Build and deploy Node.js app to Azure Web App - MarinePreservation
 
 on:
   push:
@@ -37,7 +37,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     environment:
-      name: 'Production'
+      name: 'production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
@@ -50,7 +50,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'Marine-Preservation'
-          slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_CBFD0B52C06448A6B9F1BCFCDB21B51D }}
+          app-name: 'MarinePreservation'
+          slot-name: 'production'
+          publish-profile: ${{ secrets.AzureAppService_PublishProfile_ed7807b010914c99aeb2320c48ea59b0 }}
           package: .
