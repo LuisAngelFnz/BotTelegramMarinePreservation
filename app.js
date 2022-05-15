@@ -1,18 +1,40 @@
-const config = {port:process.env.PORT || 3000};
-const express = require('express');
+const FishController = require('./lib/controllers/FishController');  
+const TelegramBot    = require("node-telegram-bot-api");
+const token          = require('./token')
 
+const bot = new TelegramBot(token, {polling: true});
 
-const app = express();
+// Matches "/echo [whatever]"
+bot.onText(/\/echo (.+)/, (msg, match) => {
 
-app.use(express.json())
+    const chatId = msg.chat.id;
+    const resp = match[1];
 
-app.set('port', config.port);
-
-app.use('/', express.static('public'))
-app.use('/', (request, response) => {
-    return response.status(200).json({'yest':'test'});
+    bot.sendMessage(chatId, resp);
 });
 
-app.listen(config.port, () => {
-  console.log(`Demo app is running on ${config.port}!`);
+
+bot.on("message", (msg) => {
+    const chat_id = msg.chat.id;
+    
+    const message = msg.text.trim().toLowerCase();
+    if(['/start','help'].includes(message)){
+        response = [
+            'Hola aqui puedes consultar los peces el peligro de extinción',
+            'Opciones:',
+            '* All ó Todos (Obtiene todos los peces)',
+            '* Names ó Nombres (Consulta los nombres)',
+            '* puedes mandar algún nombre para consultar su info'
+        ].join('\n')
+
+    }else if(['todos', 'all'].includes(message)){
+        response = FishController.getAllFish();
+    
+    }else if(['nombres', 'names'].includes(message)){
+        response = FishController.getAllFishNames();
+    }else{
+        response = FishController.getFishByName(message);
+    }
+    
+    bot.sendMessage(chat_id, response);
 });
