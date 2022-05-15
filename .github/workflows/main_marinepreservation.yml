@@ -52,5 +52,5 @@ jobs:
         with:
           app-name: 'MarinePreservation'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_364386D673EB4706BB0938CC216DCDE1 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_D914512F4A8243459A294C55A20FC452 }}
           package: .
