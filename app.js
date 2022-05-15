@@ -10,7 +10,7 @@ app.set('port', config.port);
 
 app.use('/', express.static('public'))
 app.use('/', (request, response) => {
-  return response.status(200).json({'yest':'test'});
+    return response.status(200).json({'yest':'test'});
 });
 
 app.listen(config.port, () => {

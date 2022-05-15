@@ -8,7 +8,8 @@
   },
   "scripts": {
     "test": "echo 'Pass force test'",
-    "server": "node ./lib/server.js"
+    "start": "node app.js",
+    "server": "node app.js"
   },
   "author": "Luis Ángel Fernandez y Compañeros de Equipo",
   "license": "ISC",
