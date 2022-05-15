@@ -27,7 +27,7 @@ bot.on("message", (msg) => {
                 '* Names ó Nombres (Consulta los nombres)',
                 '* puedes mandar algún nombre para consultar su info',
                 '\nTambien puedes escribir "help"'
-            ].join('\n')
+            ].join('\n');
 
         }else if(['todos', 'all'].includes(message)){
             response = FishController.getAllFish();
